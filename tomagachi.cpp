@@ -1,36 +1,39 @@
 #include <iostream>
 #include <map>
+#include <stdio.h>
 
 using namespace std;
-//Pet Interface;
-//Each pet has a the following attributes:
-//  lifeStatus(Healthy, Sickly, Dead), conditionsList(Hungry, Dirty, Thirsty, Bored), 
 
 
-//Game Values
+
+////Game Values and Attributes
 const int MAX = 100;
 const int DEATHDAY = 7;
 
-
 enum Life {Alive, Sickly, Dead};
-enum Attribute {Energy, Hunger, Thirst, Cleanliness};
+enum Attribute {Hunger, Thirst, Energy, Cleanliness};
 
+
+//// Identifies Pet attributes and methods
 class Pet{
     private:
         // Energy, Hunger, Thirst, Cleanliness attributes
+        string name;
+        string petType;
+
         map<Attribute, int> attribute{
-            {Energy, MAX},
             {Hunger, MAX},
             {Thirst, MAX},
+            {Energy, MAX},
             {Cleanliness, MAX}
         };
 
         ////If a condititon has been at 0 for longer than 7 days, 
         //Days Since: Energy, Fed, Drank, Cleaned
         map<Attribute, int> daysSince{
-            {Energy, 0},
             {Hunger, 0},
             {Thirst, 0},
+            {Energy, MAX},
             {Cleanliness, 0}
         };
 
@@ -54,20 +57,24 @@ class Pet{
 
         int cleanPet(){
             attribute[Cleanliness] = MAX;
-            if (attribute[Cleanliness] > MAX){attribute[Cleanliness] = MAX;}
         }
 
         int getDaysSince(Attribute condition){
             return daysSince[condition];
         }
-        int resetDaysSince(Attribute condition){
+
+        void increaseDay(){
+            daysSince[Hunger]++;
+            daysSince[Thirst]++;
+            daysSince[Energy]++;
+            daysSince[Cleanliness]++;
+        }
+
+        void resetDaysSince(Attribute condition){
             daysSince[condition] = 0;
-            return 1;
         }
 
 };
-
-
 
 
 int main(){
