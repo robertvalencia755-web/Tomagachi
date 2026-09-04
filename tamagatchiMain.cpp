@@ -1,6 +1,8 @@
 #include <iostream>
+#include <fstream>
 #include <map>
 #include <stdio.h>
+#include <Dependency/json.hpp>
 
 using namespace std;
 
@@ -12,6 +14,15 @@ const int DEATHDAY = 7;
 
 enum Life {Alive, Sickly, Dead};
 enum Attribute {Hunger, Thirst, Energy, Cleanliness};
+enum PetType {Dog, Cat, };
+
+//map of days that stats can remain 0 before death
+map<Attribute, int> DEATHDAY{
+    {Hunger, 7},
+    {Thirst, 3},
+    {Energy, 10},
+    {Cleanliness, 8}
+};
 
 
 //// Identifies Pet attributes and methods
@@ -19,7 +30,9 @@ class Pet{
     private:
         // Energy, Hunger, Thirst, Cleanliness attributes
         string name;
-        string petType;
+        PetType petType;
+        Life life = Alive;
+
 
         map<Attribute, int> attribute{
             {Hunger, MAX},
@@ -37,9 +50,18 @@ class Pet{
             {Cleanliness, 0}
         };
 
-        Life life = Life::Alive;
+        
 
     public:
+
+        void assignData(string name, PetType petType, Life life, map<Attribute, int> attribute, map<Attribute, int> daysSince){
+            this->name = name;
+            this->petType = petType;
+            this->life = life;
+            this->attribute = attribute;
+            this->daysSince = daysSince;
+        }
+
         int feedPet(int foodVal){
             attribute[Hunger] += foodVal;
             if (attribute[Hunger] > MAX){attribute[Hunger] = MAX;}
@@ -77,6 +99,15 @@ class Pet{
 };
 
 
+//Initalizes all variables from local storage in the case battery dies.
+//Use DS1374 for SiT1532
+int deviceInitialization(Pet *pet){
+    //Read the PetData.json file
+    //Assign *pet pointer object with necessary variables
+}
+
+
+//Main Tamagatchi running program
 int main(){
 
 }

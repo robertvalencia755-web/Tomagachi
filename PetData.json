@@ -1,0 +1,19 @@
+{
+    "FirstStart?": true,
+    "life": "Alive",
+    "name": " ",
+    "petType": " ",
+    "attribute": {
+        "Hunger": 100,
+        "Thirst": 100,
+        "Energy": 100,
+        "Cleanliness": 100
+    },
+    "daysSince":{
+        "Hunger": 0,
+        "Thirst": 0,
+        "Energy": 0,
+        "Cleanliness": 0        
+    }
+
+}
