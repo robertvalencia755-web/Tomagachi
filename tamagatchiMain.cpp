@@ -5,7 +5,7 @@
 #include <Dependency/json.hpp>
 
 using namespace std;
-
+using json = nlohmann::json;
 
 
 ////Game Values and Attributes
@@ -14,7 +14,7 @@ const int DEATHDAY = 7;
 
 enum Life {Alive, Sickly, Dead};
 enum Attribute {Hunger, Thirst, Energy, Cleanliness};
-enum PetType {Dog, Cat, };
+enum PetType {Dog, Cat, Rat, Bunny, Crow};
 
 //map of days that stats can remain 0 before death
 map<Attribute, int> DEATHDAY{
@@ -103,7 +103,12 @@ class Pet{
 //Use DS1374 for SiT1532
 int deviceInitialization(Pet *pet){
     //Read the PetData.json file
+    ifstream file("PetData.json");
+    json data;
+    data = json::parse(file);
+    file.close();
     //Assign *pet pointer object with necessary variables
+    pet->assignData(data["name"], data["petType"], data["life"], data["attribute"], data["daysSince"]);
 }
 
 
