@@ -1,7 +1,8 @@
 {
-    "FirstStart?": true,
-    "life": "Alive",
-    "name": " ",
+    "FirstStart?": 0,
+    "userName": " ",
+    "petName": " ",
+    "life": "Dead",
     "petType": " ",
     "attribute": {
         "Hunger": 100,

@@ -11,6 +11,7 @@ using json = nlohmann::json;
 ////Game Values and Attributes
 const int MAX = 100;
 const int DEATHDAY = 7;
+const string userName = " ";
 
 enum Life {Alive, Sickly, Dead};
 enum Attribute {Hunger, Thirst, Energy, Cleanliness};
@@ -29,7 +30,7 @@ map<Attribute, int> DEATHDAY{
 class Pet{
     private:
         // Energy, Hunger, Thirst, Cleanliness attributes
-        string name;
+        string petName;
         PetType petType;
         Life life = Alive;
 
@@ -55,7 +56,7 @@ class Pet{
     public:
 
         void assignData(string name, PetType petType, Life life, map<Attribute, int> attribute, map<Attribute, int> daysSince){
-            this->name = name;
+            this->petName = name;
             this->petType = petType;
             this->life = life;
             this->attribute = attribute;
@@ -101,18 +102,41 @@ class Pet{
 
 //Initalizes all variables from local storage in the case battery dies.
 //Use DS1374 for SiT1532
-int deviceInitialization(Pet *pet){
-    //Read the PetData.json file
-    ifstream file("PetData.json");
-    json data;
-    data = json::parse(file);
-    file.close();
-    //Assign *pet pointer object with necessary variables
-    pet->assignData(data["name"], data["petType"], data["life"], data["attribute"], data["daysSince"]);
-}
+class gameIntruct{
+    int deviceInitialization(Pet *pet){
+        //Read the PetData.json file
+        ifstream file("PetData.json");
+        json data;
+        data = json::parse(file);
+        file.close();
+
+        //Check if dead, if true, prompt info
+        if(data["userName"] == " "){
+            promptInfo(pet);
+        } else if(data["life"] == Dead){
+            //Death Prompt
+        }else {
+            //Assign *pet pointer object with necessary variables
+            pet->assignData(data["petName"], data["petType"], data["life"], data["attribute"], data["daysSince"]);
+        }
+        
+    }
+
+    //For first initialization, assign user and pet names / type
+    void promptInfo(Pet *pet){
+        //Prompt user for names from arduino interface
+    }
+
+    void deathPrompt(Pet *pet){
+        //Show death screen 
+    }
+};
+
 
 
 //Main Tamagatchi running program
 int main(){
+    //Create pet object
+    //
 
 }
