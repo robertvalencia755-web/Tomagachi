@@ -2,7 +2,8 @@
 #include <fstream>
 #include <map>
 #include <stdio.h>
-#include <include/json.hpp>
+#include <json.hpp>
+#include <Arduino.h>
 
 using namespace std;
 using json = nlohmann::json;
@@ -10,7 +11,6 @@ using json = nlohmann::json;
 
 ////Game Values and Attributes
 const int MAX = 100;
-const int DEATHDAY = 7;
 const string userName = " ";
 
 enum Life {Alive, Sickly, Dead};
@@ -18,7 +18,7 @@ enum Attribute {Hunger, Thirst, Energy, Cleanliness};
 enum PetType {Dog, Cat, Rat, Bunny, Crow};
 
 //map of days that stats can remain 0 before death
-map<Attribute, int> DEATHDAY{
+std::map<Attribute, int> DEATHDAY{
     {Hunger, 7},
     {Thirst, 3},
     {Energy, 10},
@@ -35,7 +35,7 @@ class Pet{
         Life life = Alive;
 
 
-        map<Attribute, int> attribute{
+        std::map<Attribute, int> attribute{
             {Hunger, MAX},
             {Thirst, MAX},
             {Energy, MAX},
@@ -44,7 +44,7 @@ class Pet{
 
         ////If a condititon has been at 0 for longer than 7 days, 
         //Days Since: Energy, Fed, Drank, Cleaned
-        map<Attribute, int> daysSince{
+        std::map<Attribute, int> daysSince{
             {Hunger, 0},
             {Thirst, 0},
             {Energy, MAX},
@@ -55,7 +55,7 @@ class Pet{
 
     public:
 
-        void assignData(string name, PetType petType, Life life, map<Attribute, int> attribute, map<Attribute, int> daysSince){
+        void assignData(string name, PetType petType, Life life, std::map<Attribute, int> attribute, std::map<Attribute, int> daysSince){
             this->petName = name;
             this->petType = petType;
             this->life = life;
@@ -135,8 +135,10 @@ class gameIntruct{
 
 
 //Main Tamagatchi running program
-int main(){
-    //Create pet object
-    //
+void setup(){
+
+}
+
+void loop(){
 
 }
