@@ -2,7 +2,7 @@
 #include <fstream>
 #include <map>
 #include <stdio.h>
-#include <Dependency/json.hpp>
+#include <include/json.hpp>
 
 using namespace std;
 using json = nlohmann::json;
@@ -105,7 +105,7 @@ class Pet{
 class gameIntruct{
     int deviceInitialization(Pet *pet){
         //Read the PetData.json file
-        ifstream file("PetData.json");
+        ifstream file("TamagatchiAssets/PetData.json");
         json data;
         data = json::parse(file);
         file.close();
