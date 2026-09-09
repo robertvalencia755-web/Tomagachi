@@ -1,7 +1,81 @@
 {
   "version": 1,
-  "author": "Robert",
+  "author": "Anonymous maker",
   "editor": "wokwi",
-  "parts": [],
-  "connections": []
+  "parts": [
+    { "type": "wokwi-breadboard-mini", "id": "bb1", "top": -78.2, "left": -21.6, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -268.8, "left": 254.44, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -179.26,
+      "left": 19.43,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn1",
+      "top": 17,
+      "left": 96,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn2",
+      "top": 17,
+      "left": 48,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn3",
+      "top": 17,
+      "left": 0,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    { "type": "wokwi-microsd-card", "id": "sd1", "top": -95.77, "left": -124.73, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": 0.76, "left": 182.4, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": -9.6, "left": 153, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -276,
+      "left": 107.4,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:5V", "vcc1:VCC", "red", [ "h0" ] ],
+    [ "esp:CMD", "gnd1:GND", "black", [ "h0" ] ],
+    [ "vcc1:VCC", "bb1:17t.a", "red", [ "v-96", "h-48" ] ],
+    [ "oled1:VCC", "bb1:17t.b", "red", [ "h76.95", "v115.2" ] ],
+    [ "oled1:GND", "bb1:16t.a", "black", [ "v-9.6", "h86.4" ] ],
+    [ "btn3:1.l", "bb1:2t.e", "black", [ "h0" ] ],
+    [ "btn2:1.l", "bb1:7t.e", "black", [ "h0" ] ],
+    [ "btn1:1.l", "bb1:12t.e", "black", [ "h0" ] ],
+    [ "bb1:2t.e", "bb1:7t.e", "black", [ "v0" ] ],
+    [ "bb1:7t.e", "bb1:12t.e", "black", [ "v0" ] ],
+    [ "bb1:12t.e", "bb1:16t.e", "black", [ "v0" ] ],
+    [ "btn2:2.r", "esp:26", "green", [ "h0.8", "v38.8", "h144", "v-201.6" ] ],
+    [ "btn3:2.r", "esp:27", "green", [ "h0.8", "v48.4", "h201.6", "v-201.6" ] ],
+    [ "btn1:2.r", "esp:25", "green", [ "h0.8", "v29.2", "h86.4", "v-201.6" ] ],
+    [ "bb1:16t.b", "esp:CMD", "black", [ "v0" ] ],
+    [ "bz1:1", "bb1:16t.c", "black", [ "v0" ] ],
+    [ "bz1:2", "esp:33", "blue", [ "v9.6", "h66.8", "v9.6" ] ],
+    [ "btn1:1.l", "bb1:12b.h", "", [ "$bb" ] ],
+    [ "btn1:2.l", "bb1:12b.j", "", [ "$bb" ] ],
+    [ "btn1:1.r", "bb1:15b.h", "", [ "$bb" ] ],
+    [ "btn1:2.r", "bb1:15b.j", "", [ "$bb" ] ],
+    [ "btn2:1.l", "bb1:7b.h", "", [ "$bb" ] ],
+    [ "btn2:2.l", "bb1:7b.j", "", [ "$bb" ] ],
+    [ "btn2:1.r", "bb1:10b.h", "", [ "$bb" ] ],
+    [ "btn2:2.r", "bb1:10b.j", "", [ "$bb" ] ],
+    [ "btn3:1.l", "bb1:2b.h", "", [ "$bb" ] ],
+    [ "btn3:2.l", "bb1:2b.j", "", [ "$bb" ] ],
+    [ "btn3:1.r", "bb1:5b.h", "", [ "$bb" ] ],
+    [ "btn3:2.r", "bb1:5b.j", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
 }
