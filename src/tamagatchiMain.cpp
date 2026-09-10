@@ -44,10 +44,10 @@ class Pet{
 
         ////If a condititon has been at 0 for longer than 7 days, 
         //Days Since: Energy, Fed, Drank, Cleaned
-        std::map<Attribute, int> daysSince{
+        std::map<Attribute, int> tiksSince{
             {Hunger, 0},
             {Thirst, 0},
-            {Energy, MAX},
+            {Energy, 0},
             {Cleanliness, 0}
         };
 
@@ -86,11 +86,11 @@ class Pet{
             return daysSince[condition];
         }
 
-        void increaseDay(){
-            daysSince[Hunger]++;
-            daysSince[Thirst]++;
-            daysSince[Energy]++;
-            daysSince[Cleanliness]++;
+        void increaseTik(){
+            tiksSince[Hunger]++;
+            tiksSince[Thirst]++;
+            tiksSince[Energy]++;
+            tiksSince[Cleanliness]++;
         }
 
         void resetDaysSince(Attribute condition){
@@ -102,7 +102,7 @@ class Pet{
 
 //Initalizes all variables from local storage in the case battery dies.
 //Use DS1374 for SiT1532
-class gameIntruct{
+class GameInstruct{
     int deviceInitialization(Pet *pet){
         //Read the PetData.json file
         ifstream file("TamagatchiAssets/PetData.json");
@@ -130,15 +130,56 @@ class gameIntruct{
     void deathPrompt(Pet *pet){
         //Show death screen 
     }
+
+    //The way that the game keeps track of how long a pet has been 
+    void tikClock(Pet *pet){
+        //When circuit tiks, call pet.increaseTik()
+    }
 };
+
+class Graphics{
+    void starterScreen(){
+
+    }
+
+    void petScreen(){
+
+    }
+
+    void petMenu(){
+
+    }
+}
 
 
 
 //Main Tamagatchi running program
 void setup(){
+    //Initialize game and load data
+    GameInstruct game;
+    Graphics screen;
+    Pet userPet;
+    screen.starterScreen();
+    game.deviceInitialization(&userPet);
+
+    
+    //Initialize second core clock
+    xTaskCreatePinnedToCore(
+    tickClock,   /* Task function */
+    "Clock",        /* Name of the task */
+    10000,          /* Stack size of bytes */
+    &userPet,           /* Parameter to pass */
+    1,              /* Task priority */
+    &Clock,         /* Task handle */
+    0               /* Core ID (0 or 1) */
+    );
+
 
 }
 
 void loop(){
+    //Insert main game loop
+    screen.petScreen();
+    //Check input
 
 }
