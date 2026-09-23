@@ -1,8 +1,9 @@
 {
     "FirstStart?": 0,
+    "RTC_Time": "",
     "userName": " ",
     "petName": " ",
-    "life": "Dead",
+    "life": "AWAKE",
     "petType": " ",
     "attribute": {
         "Hunger": 100,

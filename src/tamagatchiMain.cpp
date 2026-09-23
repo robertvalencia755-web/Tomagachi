@@ -1,119 +1,25 @@
-#include <iostream>
-#include <fstream>
-#include <map>
-#include <stdio.h>
-#include <json.hpp>
-#include <Arduino.h>
+#include <GameTypes.h>
+#include <Pet.h>
 
-using namespace std;
 using json = nlohmann::json;
-
-
-////Game Values and Attributes
-const int MAX = 100;
-const string userName = " ";
-
-enum Life {Alive, Sickly, Dead};
-enum Attribute {Hunger, Thirst, Energy, Cleanliness};
-enum PetType {Dog, Cat, Rat, Bunny, Crow};
-
-//map of days that stats can remain 0 before death
-std::map<Attribute, int> DEATHDAY{
-    {Hunger, 7},
-    {Thirst, 3},
-    {Energy, 10},
-    {Cleanliness, 8}
-};
-
-
-//// Identifies Pet attributes and methods
-class Pet{
-    private:
-        // Energy, Hunger, Thirst, Cleanliness attributes
-        string petName;
-        PetType petType;
-        Life life = Alive;
-
-
-        std::map<Attribute, int> attribute{
-            {Hunger, MAX},
-            {Thirst, MAX},
-            {Energy, MAX},
-            {Cleanliness, MAX}
-        };
-
-        ////If a condititon has been at 0 for longer than 7 days, 
-        //Days Since: Energy, Fed, Drank, Cleaned
-        std::map<Attribute, int> tiksSince{
-            {Hunger, 0},
-            {Thirst, 0},
-            {Energy, 0},
-            {Cleanliness, 0}
-        };
-
-        
-
-    public:
-
-        void assignData(string name, PetType petType, Life life, std::map<Attribute, int> attribute, std::map<Attribute, int> daysSince){
-            this->petName = name;
-            this->petType = petType;
-            this->life = life;
-            this->attribute = attribute;
-            this->daysSince = daysSince;
-        }
-
-        int feedPet(int foodVal){
-            attribute[Hunger] += foodVal;
-            if (attribute[Hunger] > MAX){attribute[Hunger] = MAX;}
-        }
-
-        int hydratePet(int drinkVal){
-            attribute[Thirst] += drinkVal;
-            if (attribute[Thirst] > MAX){attribute[Thirst] = MAX;}
-        }
-
-        int playPet(int energyVal){
-            attribute[Energy] += energyVal;
-            if (attribute[Energy] > MAX){attribute[Energy] = MAX;}
-        }
-
-        int cleanPet(){
-            attribute[Cleanliness] = MAX;
-        }
-
-        int getDaysSince(Attribute condition){
-            return daysSince[condition];
-        }
-
-        void increaseTik(){
-            tiksSince[Hunger]++;
-            tiksSince[Thirst]++;
-            tiksSince[Energy]++;
-            tiksSince[Cleanliness]++;
-        }
-
-        void resetDaysSince(Attribute condition){
-            daysSince[condition] = 0;
-        }
-
-};
+using namespace std;
 
 
 //Initalizes all variables from local storage in the case battery dies.
+
 //Use DS1374 for SiT1532
 class GameInstruct{
+    public:
     int deviceInitialization(Pet *pet){
         //Read the PetData.json file
         ifstream file("TamagatchiAssets/PetData.json");
-        json data;
-        data = json::parse(file);
+        json data = json::parse(file);
         file.close();
 
         //Check if dead, if true, prompt info
         if(data["userName"] == " "){
             promptInfo(pet);
-        } else if(data["life"] == Dead){
+        } else if(data["life"] == DEAD){
             //Death Prompt
         }else {
             //Assign *pet pointer object with necessary variables
@@ -131,25 +37,15 @@ class GameInstruct{
         //Show death screen 
     }
 
-    //The way that the game keeps track of how long a pet has been 
-    void tikClock(Pet *pet){
-        //When circuit tiks, call pet.increaseTik()
-    }
 };
 
-class Graphics{
-    void starterScreen(){
 
-    }
+void updateGraphics(PetType petType, Life life){
+    //if awake/idle state, do idle animation
+    //if sleeping, do sleeping animatoin
 
-    void petScreen(){
-
-    }
-
-    void petMenu(){
-
-    }
 }
+
 
 
 
@@ -157,29 +53,16 @@ class Graphics{
 void setup(){
     //Initialize game and load data
     GameInstruct game;
-    Graphics screen;
     Pet userPet;
-    screen.starterScreen();
     game.deviceInitialization(&userPet);
 
     
-    //Initialize second core clock
-    xTaskCreatePinnedToCore(
-    tickClock,   /* Task function */
-    "Clock",        /* Name of the task */
-    10000,          /* Stack size of bytes */
-    &userPet,           /* Parameter to pass */
-    1,              /* Task priority */
-    &Clock,         /* Task handle */
-    0               /* Core ID (0 or 1) */
-    );
+
 
 
 }
 
 void loop(){
-    //Insert main game loop
-    screen.petScreen();
-    //Check input
+
 
 }
