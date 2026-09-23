@@ -17,7 +17,7 @@ class GameInstruct{
         file.close();
 
         //Check if dead, if true, prompt info
-        if(data["userName"] == " "){
+        if(data["FirstStart?"] == 0){
             promptInfo(pet);
         } else if(data["life"] == DEAD){
             //Death Prompt
