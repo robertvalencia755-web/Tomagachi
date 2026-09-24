@@ -6,7 +6,7 @@ class Pet{
     private:
         std::string petName;
         PetType petType;
-        Life life;
+        PetState petState;
 
         std::map<Attribute, int> attribute {
             {Hunger, MAX},
@@ -23,7 +23,7 @@ class Pet{
         };
 
     public:
-        void assignData(string name, PetType petType, Life life, std::map<Attribute, int> attribute, std::map<Attribute, int> daysSince);
+        void assignData(string name, PetType petType, PetState petState, std::map<Attribute, int> attribute, std::map<Attribute, int> daysSince);
 
         void feedPet(int foodVal);
 

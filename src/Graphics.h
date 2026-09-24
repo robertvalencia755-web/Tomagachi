@@ -8,14 +8,20 @@ class Graphics{
         void playSound(PetType petType);
         void eating(PetType petType);
         void drinking(PetType petType);
+        void setState(PetState petState);
 
     private:
+        //Determine whether dirty or clean sprite is used
+        PetState currState;
+
+
         //Idle Animations
         void dogIdle();
         void catIdle();
         void hamsterIdle();
         void birdIdle();
 
+        //Random Idle Event Animations
         void dogRandIdle();
         void catRandIdle();
         void hamsterRandIdle();
@@ -44,6 +50,14 @@ class Graphics{
         void catSleeping();
         void hamsterSleeping();
         void birdSleeping();
+
+        //Cleaning Animations
+        void dogCleaning();
+        void catCleaning();
+        void hamsterCleaning();
+        void birdCleaning();
+
+
 
 };
 

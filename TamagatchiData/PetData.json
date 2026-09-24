@@ -2,7 +2,7 @@
     "FirstStart?": 0,
     "RTC_Time": "",
     "petName": " ",
-    "life": "AWAKE",
+    "petState": "AWAKE",
     "petType": " ",
     "attribute": {
         "Hunger": 100,

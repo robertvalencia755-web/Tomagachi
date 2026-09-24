@@ -10,7 +10,7 @@
 ////Game Values and Attributes
 const int MAX = 100;
 
-enum Life {AWAKE, SLEEPING, EATING, DEAD};
+enum PetState {AWAKE, SLEEPING, EATING, DEAD};
 enum Attribute {Hunger, Thirst, Energy, Cleanliness};
 enum PetType {Dog, Cat, Hamster, Bird};
 

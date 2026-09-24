@@ -7,10 +7,10 @@ using namespace std;
 //// Identifies Pet attributes and methods
 
 
-void Pet::assignData(string name, PetType petType, Life life, std::map<Attribute, int> attribute, std::map<Attribute, int> daysSince){
+void Pet::assignData(string name, PetType petType, PetState petState, std::map<Attribute, int> attribute, std::map<Attribute, int> daysSince){
     this->petName = name;
     this->petType = petType;
-    this->life = life;
+    this->petState = petState;
     this->attribute = attribute;
     this->daysSince = daysSince;
 }
