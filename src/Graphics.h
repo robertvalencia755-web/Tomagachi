@@ -14,29 +14,36 @@ class Graphics{
         void dogIdle();
         void catIdle();
         void hamsterIdle();
-        void bunnyIdle();
         void birdIdle();
+
+        void dogRandIdle();
+        void catRandIdle();
+        void hamsterRandIdle();
+        void birdRandIdle();
 
         //Sound Animations
         void dogSound();
         void catSound();
         void hamsterSound();
-        void bunnySound();
         void birdSound();
 
         //Eating Animations
         void dogEating();
         void catEating();
         void hamsterEating();
-        void bunnyEating();
         void birdEating();
 
         //Drinking Animations
         void dogDrinking();
         void catDrinking();
         void hamsterDrinking();
-        void bunnyDrinking();
         void birdDrinking();
+
+        //Sleeping Animations
+        void dogSleeping();
+        void catSleeping();
+        void hamsterSleeping();
+        void birdSleeping();
 
 };
 
