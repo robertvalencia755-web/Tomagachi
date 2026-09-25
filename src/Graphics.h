@@ -1,7 +1,6 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 #include <GameTypes.h>
-template <typename T>
 
 Animation animation;
 class Graphics{
@@ -9,6 +8,13 @@ class Graphics{
         //Loading Methods
         void loadPetType(PetType petType);
         void setState(PetState petState);
+
+        //Menu Methods
+        void drawAttributes();
+        void drawActions();
+        void changeSelect(ButtonPressed pressed, int currentSelected);
+        void changeMuteIcon();
+
 
         //PetAnimationMethods
         void idleLoop();
@@ -22,32 +28,34 @@ class Graphics{
 
 
 
+
+
     private:
         //Determine whether dirty or clean sprite is used
-        PetState currState;
-        bool MUTED = false;
-        std::map<Animation, T[]> animationSet{
+        PetState petState;
+
+        
+
+        std::map<Animation, Bitmap> animationSet{
             //The actual pet animations
-            {IdleAnimation, []},
-            {IdleRandomAnimation, []},
-            {SoundAnimation, []},
-            {EatingAnimation, []},
-            {DrinkingAnimation, []},
-            {SleepingAnimation, []},
-            {CleaningAnimation, []},
-            
-            //Menu icons
-            {AttributeIcons, []},
-            {OptionIcons, []},
-            {OptionSelect, []},
-            {Muted, []},
-            {UnMuted, []}
-            
+            {IdleAnimation, {}},
+            {IdleRandomAnimation, {}},
+            {SoundAnimation, {}},
+            {EatingAnimation, {}},
+            {DrinkingAnimation, {}},
+            {SleepingAnimation, {}},
+            {CleaningAnimation, {}},
         };
 
-      
-
-
+        std::map<Animation, Bitmap> menuSet{
+            {AttributeMenu, {image_Attribute_Menu_bits, 27, 36}},
+            {ActionMenu, {image_Actions_Menu_bits, 19, 64}},
+            {Muted, {image_Mute_On_bits, 8, 8}},
+            {UnMuted, {image_Mute_Off_bits, 8, 8}}
+        };
+        
+        void mute();
+        void unMute();
 
         //Idle Animations
         void dogIdle();

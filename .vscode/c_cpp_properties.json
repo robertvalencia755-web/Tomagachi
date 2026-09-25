@@ -10,6 +10,9 @@
             "includePath": [
                 "/home/robertv3/Downloads/Coding/Personal_Projects/Tomagachi/include",
                 "/home/robertv3/Downloads/Coding/Personal_Projects/Tomagachi/src",
+                "/home/robertv3/Downloads/Coding/Personal_Projects/Tomagachi/.pio/libdeps/esp32dev/U8g2/src",
+                "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
+                "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
                 "/home/robertv3/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/newlib/platform_include",
                 "/home/robertv3/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include",
                 "/home/robertv3/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include/esp_additions/freertos",
@@ -228,7 +231,6 @@
                 "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/RainMaker/src",
                 "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/SD/src",
                 "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/SD_MMC/src",
-                "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
                 "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/SPIFFS/src",
                 "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/SimpleBLE/src",
                 "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/Ticker/src",
@@ -238,7 +240,6 @@
                 "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                 "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/WiFiClientSecure/src",
                 "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/WiFiProv/src",
-                "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                 ""
             ],
             "browse": {
@@ -246,6 +247,9 @@
                 "path": [
                     "/home/robertv3/Downloads/Coding/Personal_Projects/Tomagachi/include",
                     "/home/robertv3/Downloads/Coding/Personal_Projects/Tomagachi/src",
+                    "/home/robertv3/Downloads/Coding/Personal_Projects/Tomagachi/.pio/libdeps/esp32dev/U8g2/src",
+                    "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
+                    "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
                     "/home/robertv3/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/newlib/platform_include",
                     "/home/robertv3/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include",
                     "/home/robertv3/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include/esp_additions/freertos",
@@ -464,7 +468,6 @@
                     "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/RainMaker/src",
                     "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/SD/src",
                     "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/SD_MMC/src",
-                    "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
                     "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/SPIFFS/src",
                     "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/SimpleBLE/src",
                     "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/Ticker/src",
@@ -474,7 +477,6 @@
                     "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                     "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/WiFiClientSecure/src",
                     "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/WiFiProv/src",
-                    "/home/robertv3/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                     ""
                 ]
             },
