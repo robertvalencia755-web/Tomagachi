@@ -6,15 +6,18 @@
 #include <stdio.h>
 #include <json.hpp>
 #include <Arduino.h>
-#include <string>
+using json = nlohmann::json;
+using namespace std;
 
 ////Game Values and Attributes
 const int MAX = 100;
 
 enum PetState {AWAKE, SLEEPING, EATING, DEAD};
 enum Attribute {Hunger, Thirst, Energy, Cleanliness};
-enum PetType {Dog, Cat, Hamster, Bird};
+enum PetType {DOG, CAT, HAMSTER, BIRD};
+enum Animation {IdleAnimation, IdleRandomAnimation, SoundAnimation, EatingAnimation, DrinkingAnimation, SleepingAnimation, CleaningAnimation, AttributeIcons, OptionIcons, OptionSelect, Muted, UnMuted};
 enum ButtonPressed {LEFT, MIDDLE, RIGHT, NONE};
+
 
 //map of days that stats can remain 0 before death
 const std::map<Attribute, int> DEATHDAY{

@@ -1,11 +1,6 @@
 #include <GameTypes.h>
 #include <Pet.h>
 
-using json = nlohmann::json;
-using namespace std;
-
-
-
 //Use DS1374 for SiT1532
 class GameInstruct{
     public:
@@ -18,7 +13,7 @@ class GameInstruct{
 
 
         //Read the PetData.json file
-        ifstream file("TamagatchiAssets/PetData.json");
+        ifstream file("TamagatchiData/PetData.json");
         json data = json::parse(file);
         file.close();
 

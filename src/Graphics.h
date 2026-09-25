@@ -1,23 +1,51 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 #include <GameTypes.h>
+template <typename T>
 
+Animation animation;
 class Graphics{
     public:
-        void idleLoop(PetType petType);
-        void playSound(PetType petType);
-        void eating(PetType petType);
-        void drinking(PetType petType);
+        //Loading Methods
+        void loadPetType(PetType petType);
+        void setState(PetState petState);
+
+        //PetAnimationMethods
+        void idleLoop();
+        void playSound();
+        void eating();
+        void drinking();
+
+        //PromptingMethods (Primarilly for pet creation)
         void promptPetType();
         void promptPetName();
 
-        void loadPetType(PetType petType);
-        void setState(PetState petState);
+
 
     private:
         //Determine whether dirty or clean sprite is used
         PetState currState;
         bool MUTED = false;
+        std::map<Animation, T[]> animationSet{
+            //The actual pet animations
+            {IdleAnimation, []},
+            {IdleRandomAnimation, []},
+            {SoundAnimation, []},
+            {EatingAnimation, []},
+            {DrinkingAnimation, []},
+            {SleepingAnimation, []},
+            {CleaningAnimation, []},
+            
+            //Menu icons
+            {AttributeIcons, []},
+            {OptionIcons, []},
+            {OptionSelect, []},
+            {Muted, []},
+            {UnMuted, []}
+            
+        };
+
+      
 
 
 

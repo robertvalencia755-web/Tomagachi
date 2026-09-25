@@ -1,0 +1,49 @@
+{
+    "Dog": {
+        "IdleAnimation": " ",
+        "IdleRandomAnimation": " ",
+        "SoundAnimation": " ",
+
+        "EatingAnimation": " ",
+        "DrinkingAnimation": " ",
+        "SleepingAnimation": " ",
+        "CleaningAnimation": " "
+        
+    },
+
+    "Cat": {
+        "IdleAnimation": " ",
+        "IdleRandomAnimation": " ",
+        "SoundAnimation": " ",
+
+        "EatingAnimation": " ",
+        "DrinkingAnimation": " ",
+        "SleepingAnimation": " ",
+        "CleaningAnimation": " "
+
+    },
+
+    "Hamster": {
+        "IdleAnimation": " ",
+        "IdleRandomAnimation": " ",
+        "SoundAnimation": " ",
+
+        "EatingAnimation": " ",
+        "DrinkingAnimation": " ",
+        "SleepingAnimation": " ",
+        "CleaningAnimation": " "
+
+    },
+
+    "Bird": {
+        "IdleAnimation": " ",
+        "IdleRandomAnimation": " ",
+        "SoundAnimation": " ",
+
+        "EatingAnimation": " ",
+        "DrinkingAnimation": " ",
+        "SleepingAnimation": " ",
+        "CleaningAnimation": " "
+
+    }
+}
