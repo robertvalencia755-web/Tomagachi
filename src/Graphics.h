@@ -8,11 +8,17 @@ class Graphics{
         void playSound(PetType petType);
         void eating(PetType petType);
         void drinking(PetType petType);
+        void promptPetType();
+        void promptPetName();
+
+        void loadPetType(PetType petType);
         void setState(PetState petState);
 
     private:
         //Determine whether dirty or clean sprite is used
         PetState currState;
+        bool MUTED = false;
+
 
 
         //Idle Animations

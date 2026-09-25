@@ -5,12 +5,18 @@ using json = nlohmann::json;
 using namespace std;
 
 
-//Initalizes all variables from local storage in the case battery dies.
 
 //Use DS1374 for SiT1532
 class GameInstruct{
     public:
+    //Initialized data from storage
     int deviceInitialization(Pet *pet){
+        //Initialize pins
+        pinMode(LEFT, INPUT_PULLUP);
+        pinMode(MIDDLE, INPUT_PULLUP);
+        pinMode(RIGHT, INPUT_PULLUP);
+
+
         //Read the PetData.json file
         ifstream file("TamagatchiAssets/PetData.json");
         json data = json::parse(file);
@@ -23,11 +29,29 @@ class GameInstruct{
             //Death Prompt
         }else {
             //Assign *pet pointer object with necessary variables
-            pet->assignData(data["petName"], data["petType"], data["life"], data["attribute"], data["daysSince"]);
+            pet->assignData(data["petName"], data["petType"], data["petState"], data["attribute"], data["daysSince"]);
         }
         
     }
 
+
+    //Check the input from user
+    void checkInput(){
+        if (digitalRead(LEFT_BUTTON) == LOW){
+            pressed = LEFT;
+        } else if (digitalRead(MIDDLE_BUTTON) == LOW){
+            pressed = MIDDLE;
+        } else if (digitalRead(RIGHT_BUTTON) == LOW){
+            pressed = RIGHT;
+        } else {
+            pressed = NONE;
+        }
+    }
+
+    //Update the graphics, for animations
+    void updateGraphics(){
+
+    }
     //For first initialization, assign user and pet names / type
     void promptInfo(Pet *pet){
         //Prompt user for names from arduino interface
@@ -40,7 +64,7 @@ class GameInstruct{
 };
 
 
-void updateGraphics(PetType petType, Life life){
+void updateGraphics(PetType petType, PetState petState){
     //if awake/idle state, do idle animation
     //if sleeping, do sleeping animatoin
 
@@ -63,6 +87,6 @@ void setup(){
 }
 
 void loop(){
-
+    game.checkInput();
 
 }

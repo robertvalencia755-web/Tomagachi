@@ -1,5 +1,4 @@
 #include <Pet.h>
-#include <GameTypes.h>
 
 using namespace std;
 

@@ -1,5 +1,6 @@
 #ifndef PET_H
 #define PET_H
+#include <GameTypes.h>
 
 
 class Pet{
