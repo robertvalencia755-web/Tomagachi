@@ -12,9 +12,9 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug",
-            "executable": "/home/robertv3/Downloads/Coding/Personal_Projects/Tomagachi/.pio/build/esp32dev/firmware.elf",
+            "executable": "D:/Coding/Coding FIles/Port_Projects/Tomagachi/Tomagachi/.pio/build/esp32dev/firmware.elf",
             "projectEnvName": "esp32dev",
-            "toolchainBinDir": "/home/robertv3/.platformio/packages/toolchain-xtensa-esp32/bin",
+            "toolchainBinDir": "C:/Users/eyelo/.platformio/packages/toolchain-xtensa-esp32/bin",
             "internalConsoleOptions": "openOnSessionStart",
             "preLaunchTask": {
                 "type": "PlatformIO",
@@ -25,18 +25,18 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
-            "executable": "/home/robertv3/Downloads/Coding/Personal_Projects/Tomagachi/.pio/build/esp32dev/firmware.elf",
+            "executable": "D:/Coding/Coding FIles/Port_Projects/Tomagachi/Tomagachi/.pio/build/esp32dev/firmware.elf",
             "projectEnvName": "esp32dev",
-            "toolchainBinDir": "/home/robertv3/.platformio/packages/toolchain-xtensa-esp32/bin",
+            "toolchainBinDir": "C:/Users/eyelo/.platformio/packages/toolchain-xtensa-esp32/bin",
             "internalConsoleOptions": "openOnSessionStart"
         },
         {
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (without uploading)",
-            "executable": "/home/robertv3/Downloads/Coding/Personal_Projects/Tomagachi/.pio/build/esp32dev/firmware.elf",
+            "executable": "D:/Coding/Coding FIles/Port_Projects/Tomagachi/Tomagachi/.pio/build/esp32dev/firmware.elf",
             "projectEnvName": "esp32dev",
-            "toolchainBinDir": "/home/robertv3/.platformio/packages/toolchain-xtensa-esp32/bin",
+            "toolchainBinDir": "C:/Users/eyelo/.platformio/packages/toolchain-xtensa-esp32/bin",
             "internalConsoleOptions": "openOnSessionStart",
             "loadMode": "manual"
         }
