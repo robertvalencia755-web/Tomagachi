@@ -2,7 +2,6 @@
 #define GRAPHICS_H
 #include <GameTypes.h>
 
-Animation animation;
 class Graphics{
     public:
         //Loading Methods
@@ -12,7 +11,7 @@ class Graphics{
         //Menu Methods
         void drawAttributes();
         void drawActions();
-        void changeSelect(ButtonPressed pressed, int currentSelected);
+        ActionSelect changeSelect(ButtonPressed pressed, ActionSelect currentSelected);
         void changeMuteIcon();
 
 
@@ -36,7 +35,7 @@ class Graphics{
 
         
 
-        std::map<Animation, Bitmap> animationSet{
+        std::map<Animation, std::vector<Bitmap>> animationSet{
             //The actual pet animations
             {IdleAnimation, {}},
             {IdleRandomAnimation, {}},
@@ -57,47 +56,12 @@ class Graphics{
         void mute();
         void unMute();
 
-        //Idle Animations
-        void dogIdle();
-        void catIdle();
-        void hamsterIdle();
-        void birdIdle();
-
-        //Random Idle Event Animations
-        void dogRandIdle();
-        void catRandIdle();
-        void hamsterRandIdle();
-        void birdRandIdle();
-
-        //Sound Animations
-        void dogSound();
-        void catSound();
-        void hamsterSound();
-        void birdSound();
-
-        //Eating Animations
-        void dogEating();
-        void catEating();
-        void hamsterEating();
-        void birdEating();
-
-        //Drinking Animations
-        void dogDrinking();
-        void catDrinking();
-        void hamsterDrinking();
-        void birdDrinking();
-
-        //Sleeping Animations
-        void dogSleeping();
-        void catSleeping();
-        void hamsterSleeping();
-        void birdSleeping();
-
-        //Cleaning Animations
-        void dogCleaning();
-        void catCleaning();
-        void hamsterCleaning();
-        void birdCleaning();
+        void idleAnimation();
+        void idleRandomAnimation();
+        void soundAnimation();
+        void eatingAnimation();
+        void drinkingAnimation();
+        void cleaningAnimation();
 
 
 

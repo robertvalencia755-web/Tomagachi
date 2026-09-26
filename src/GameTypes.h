@@ -16,7 +16,6 @@ const int MAX = 100;
 enum PetState {AWAKE, SLEEPING, EATING, DEAD};
 enum Attribute {Hunger, Thirst, Energy, Cleanliness};
 enum PetType {DOG, CAT, HAMSTER, BIRD, NONE};
-enum Animation {IdleAnimation, IdleRandomAnimation, SoundAnimation, EatingAnimation, DrinkingAnimation, SleepingAnimation, CleaningAnimation, AttributeMenu, ActionMenu, ActionSelect, Muted, UnMuted};
 enum ButtonPressed {LEFT, MIDDLE, RIGHT, NONE};
 
 
@@ -47,6 +46,8 @@ U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(
 
 
 //Graphics
+enum Animation {IdleAnimation, IdleRandomAnimation, SoundAnimation, EatingAnimation, DrinkingAnimation, SleepingAnimation, CleaningAnimation, AttributeMenu, ActionMenu, ActionSelect, Muted, UnMuted};
+enum ActionSelect {FEED = 3, DRINK = 15, SLEEP = 27, CLEAN = 39, MUTE = 51};
 
 struct Bitmap{
     const uint8_t* data;

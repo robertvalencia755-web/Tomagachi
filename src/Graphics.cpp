@@ -47,7 +47,7 @@ void Graphics::drawActions(){
     );
 }
 
-void Graphics::changeSelect(ButtonPressed pressed, int currentSelection){
+ActionSelect Graphics::changeSelect(ButtonPressed pressed, ActionSelect currentSelection){
     int y = currentSelection;
     switch (pressed){
         case LEFT:
